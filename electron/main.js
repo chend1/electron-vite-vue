@@ -11,10 +11,10 @@ app.whenReady().then(() => {
       preload: path.join(__dirname, 'preload.js')
     },
   })
-  if(process.env.NODE_ENV === 'development') {
+  if(!app.isPackaged) {
     win.loadURL('http://localhost:5000')
     win.webContents.openDevTools()
   } else {
-    win.loadFile(path.join(__dirname, '../dist/index.html'))
+    win.loadURL(path.join(__dirname, '../dist/index.html'))
   }
 })
