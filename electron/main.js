@@ -1,6 +1,8 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
+
 app.whenReady().then(() => {
   const win = new BrowserWindow({
     // width: 1000,
